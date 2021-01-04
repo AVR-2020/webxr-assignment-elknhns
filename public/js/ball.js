@@ -5,6 +5,7 @@ AFRAME.registerComponent('ballgenerator', {
     init: function () {
         let spawner = this.el;
         let scorer = document.getElementById("scoretext");
+        let gameover = document.getElementById("gameover");
         // console.log(scorer);
         gameID = setInterval(generateBalls, 2000);
 
@@ -17,7 +18,7 @@ AFRAME.registerComponent('ballgenerator', {
                 newBall.setAttribute("dynamic-body", "shape: sphere");
                 let randomX = Math.random() * 8 - 4;
                 let randomY = Math.random() * 2 + 1;
-                newBall.setAttribute("position", `${randomX} ${randomY} -30`);
+                newBall.setAttribute("position", `${randomX} ${randomY} -20`);
                 spawner.appendChild(newBall);
                 newBall.addEventListener('click', function () {
                     score++;
@@ -28,6 +29,8 @@ AFRAME.registerComponent('ballgenerator', {
                 newBall.addEventListener('collide', function() {
                     gameID = -1;
                     console.log("GAME OVER");
+                    newBall.parentNode.removeChild(newBall);
+                    gameover.setAttribute("visible", "true");
                 });
             }
         }

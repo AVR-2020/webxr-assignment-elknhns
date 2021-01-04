@@ -11,6 +11,7 @@
 
     <a-camera wasd-controls look-controls="pointerLockEnabled: true" aframe-injected="" data-aframe-inspector-original-camera="" position="0 2 0">
         <a-cursor></a-cursor>
+        <a-text id="gameover" value="GAME OVER" text="anchor: center; width: 6; value: GAME OVER; align: center; color: #ffffff" position="0 0 -1" geometry="primitive: plane; width: 3.97" material="opacity: 0.5; color: #000000" visible="false"></a-text>
         <a-text id="scoretext" value="Score : 0" position="1.5 -0.7 -1" text="width: 2; align: right"></a-text>
     </a-camera>
 
