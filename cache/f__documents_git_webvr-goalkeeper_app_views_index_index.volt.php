@@ -1,4 +1,4 @@
-<a-scene physics="debug: true; gravity: 0" ballgenerator>
+<a-scene physics="gravity: 0" ballgenerator>
     <a-assets>
         <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
         <img id="skyTexture" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
@@ -9,9 +9,10 @@
     <a-entity environment="preset: forest; dressingAmount: 500"></a-entity>
     <a-sky color="#222"></a-sky>
 
-    <a-camera wasd-controls look-controls="pointerLockEnabled: true" aframe-injected="" data-aframe-inspector-original-camera="" position="0 2 0">
-        <a-cursor></a-cursor>
-        <a-text id="gameover" value="GAME OVER" text="anchor: center; width: 6; value: GAME OVER; align: center; color: #ffffff" position="0 0 -1" geometry="primitive: plane; width: 3.97" material="opacity: 0.5; color: #000000" visible="false"></a-text>
+    <a-camera id="camera" wasd-controls look-controls="pointerLockEnabled: true" aframe-injected="" data-aframe-inspector-original-camera="" position="0 2 0">
+        <a-cursor scale="2 2 2"></a-cursor>
+        <a-text id="gameover" value="GAME OVER" text="anchor: center; width: 6; value: GAME OVER; align: center; color: #ffffff" position="0 0 -8" scale="5 5 5" geometry="primitive: plane; width: 3.97" material="opacity: 0.5; color: #000000" visible="false"></a-text>
+        <a-text id="highscoretext" value="High Score : <?= $highest->score ?>" position="1.5 -0.6 -1" text="width: 2; align: right"></a-text>
         <a-text id="scoretext" value="Score : 0" position="1.5 -0.7 -1" text="width: 2; align: right"></a-text>
     </a-camera>
 
@@ -25,18 +26,4 @@
         position="-5 0 2"
         static-body
     ></a-entity>
-
-    <!-- <a-gltf-model
-        src="#ball"
-        scale="0.3 0.3 0.3"
-        position="0 2 -3"
-        animation__rotation="
-            property: rotation;
-            to: 360 0 0;
-            dur: 500;
-            loop: true;
-            easing: linear;
-        "
-    ></a-gltf-model> -->
-    <!-- dynamic-body="shape: sphere" -->
 </a-scene>

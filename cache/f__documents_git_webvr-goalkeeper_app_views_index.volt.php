@@ -11,7 +11,6 @@
 
         <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
         <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
-        <script src="https://github.com/aframevr/aframe/blob/v1.0.4/dist/aframe-master.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
     </head>
     <body>

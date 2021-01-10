@@ -13,7 +13,7 @@ return new \Phalcon\Config([
         'host'        => 'localhost',
         'username'    => 'root',
         'password'    => '',
-        'dbname'      => 'test',
+        'dbname'      => 'webvr-goalkeeper',
         'charset'     => 'utf8',
     ],
     'application' => [

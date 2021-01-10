@@ -6,31 +6,34 @@ AFRAME.registerComponent('ballgenerator', {
         let spawner = this.el;
         let scorer = document.getElementById("scoretext");
         let gameover = document.getElementById("gameover");
-        // console.log(scorer);
-        gameID = setInterval(generateBalls, 2000);
+        let camera = document.getElementById("camera");
+        
+        gameID = setInterval(generateBalls, 2500);
 
         function generateBalls() {
             if (gameID != -1) {
                 let newBall = document.createElement("a-gltf-model");
-                newBall.setAttribute("scale", "0.3 0.3 0.3");
+                newBall.setAttribute("scale", "0.35 0.35 0.35");
                 newBall.setAttribute("src", "#ball");
-                newBall.setAttribute("velocity", "0 0 15");
+                newBall.setAttribute("velocity", "0 0 10");
                 newBall.setAttribute("dynamic-body", "shape: sphere");
                 let randomX = Math.random() * 8 - 4;
                 let randomY = Math.random() * 2 + 1;
-                newBall.setAttribute("position", `${randomX} ${randomY} -20`);
+                newBall.setAttribute("position", `${randomX} ${randomY} -30`);
                 spawner.appendChild(newBall);
                 newBall.addEventListener('click', function () {
                     score++;
-                    console.log(score);
+                    console.log("%cBall catched!", "font-size: 2em");
                     newBall.parentNode.removeChild(newBall);
                     scorer.setAttribute("value", "Score : " + score);
                 });
                 newBall.addEventListener('collide', function() {
                     gameID = -1;
-                    console.log("GAME OVER");
+                    console.log("%cGAME OVER", "font-size: 2em");
                     newBall.parentNode.removeChild(newBall);
                     gameover.setAttribute("visible", "true");
+                    camera.removeAttribute('wasd-controls');
+                    camera.removeAttribute('look-controls');
                 });
             }
         }
